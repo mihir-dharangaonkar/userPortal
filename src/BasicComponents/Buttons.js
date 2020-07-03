@@ -6,7 +6,7 @@ import Icons from "../BasicComponents/Icons.js"
 const Button = styled.button`
 color: white;
 background-color:${(props) => (props.primary ? "red" : "#351973")};
-width: 100%;
+width: ${(props) => (props.width ? `${"width"}` : "40%")};
 height:50px;
 cursor:pointer;
 font-weight:bold;
@@ -21,7 +21,7 @@ const Buttons = ({ ...props }) => {
     <>
       <Button>
         {props.text}
-
+        {props.width}
         <Icons />
       </Button>
     </>

@@ -7,25 +7,27 @@ import ImageView from "../BasicComponents/ImageView.js"
 import HeaderNameContext from "../Contexts/HeaderNameContext.js"
 import Book from "../Icons/Books.svg"
 import Boy from "../Icons/Boy.svg"
+
+const Card = styled.div`
+  width: 500px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 10px 20px 30px 40px;
+  margin: 100px;
+  padding: 70px;
+  padding-bottom: 25px;
+  cursor: pointer;
+`
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 const LandingPage = ({ history }) => {
-  const Card = styled.div`
-    width: 500px;
-    height: 300px;
-    border: 2px solid black;
-    border-radius: 10px 20px 30px 40px;
-    margin: 100px;
-    padding: 70px;
-    padding-bottom: 25px;
-    cursor: pointer;
-  `
   const Actions = [
     { key: "/registration", value: "Registration Page" },
     { key: "/datatable", value: "Data Table" }
   ]
-  const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-  `
+
   const handleClick = (id) => {
     history.push(`${id}`)
   }

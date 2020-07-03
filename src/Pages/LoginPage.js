@@ -27,11 +27,11 @@ const Container = styled.div`
   height: 600px;
   width: 600px;
   margin: auto;
-` /* Center and scale the image nicely */ /*
+` /*
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-`*/
+`*/ /* Center and scale the image nicely */
 /*const LoginContainer = styled.div`
   background-image: url(${backIcon});
   height: 1000px;

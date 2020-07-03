@@ -8,7 +8,6 @@ const CustomSelect = ({ handleChange, ...props }) => {
         placeholder="Select your country"
         fluid
         value={props.value}
-        options={props.options}
         onChange={handleChange}
         name={props.name}
       />
