@@ -8,7 +8,7 @@ const Banner = styled.div`
   border: 6px solid #e80a89 to #f15b2a;
   width: 100%;
   background-image: linear-gradient(to right, #e80a89, #f15b2a);
-  height: 60px;
+  height: 160px;
   color: white;
   margin-bottom: 40px;
 `
@@ -26,21 +26,6 @@ const Header = (Props) => (
         handleClick={Props.handleClick}
       />
       <Text>{Props.header}</Text>
-      <a
-        href="http://localhost:3000/datatable"
-        title={"Please enter your first name"}
-        style={{
-          color: "white",
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "flex-end",
-          marginRight: "80px",
-          fontWeight: "bold"
-        }}
-      >
-        {" "}
-        DataTable{" "}
-      </a>
     </Banner>
   </>
 )

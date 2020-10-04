@@ -5,18 +5,21 @@ import Header from "../BasicComponents/Header.js"
 import ImageView from "../BasicComponents/ImageView.js"
 
 import HeaderNameContext from "../Contexts/HeaderNameContext.js"
+import FooterContext from "../Contexts/FooterContext"
 import Book from "../Icons/Books.svg"
 import Boy from "../Icons/Boy.svg"
+import Footer from "../BasicComponents/Footer"
 
 const Card = styled.div`
   width: 500px;
   height: 300px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 10px 20px 30px 40px;
-  margin: 100px;
+  margin: 30px;
   padding: 70px;
   padding-bottom: 25px;
   cursor: pointer;
+  overflow: auto;
 `
 const Container = styled.div`
   display: flex;
@@ -32,6 +35,7 @@ const LandingPage = ({ history }) => {
     history.push(`${id}`)
   }
   const Text = React.useContext(HeaderNameContext)
+  const Label = React.useContext(FooterContext)
 
   return (
     <>
@@ -44,10 +48,11 @@ const LandingPage = ({ history }) => {
               path={action.value === "Registration Page" ? Boy : Book}
               alt={"user"}
             />
-            <h2>{action.value}</h2>
+            <h6>{action.value}</h6>
           </Card>
         ))}
       </Container>
+      <Footer {...Label} />
     </>
   )
 }

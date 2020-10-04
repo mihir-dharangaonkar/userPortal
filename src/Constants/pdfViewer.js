@@ -1,6 +1,14 @@
-import { openWindow } from "../BasicComponents/WindowHelper"
+import React, { useState } from "react"
+import { Document, Page } from "react-pdf"
 
-export const viewInPopup = (file, documentTitle) => {
-  const objectUrl = window.URL.createObjectURL(file)
-  openWindow(objectUrl, documentTitle)
+const PdfViewer = () => {
+  return (
+    <>
+      <Document file=''>
+        <Page />
+      </Document>
+    </>
+  )
 }
+
+export default PdfViewer

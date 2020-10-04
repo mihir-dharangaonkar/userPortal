@@ -13,7 +13,7 @@ const ImageView = (props, width, height, onClick, color) => {
     <Wrapper>
       <Image
         src={props.path}
-        alt="Logo"
+        alt='Logo'
         style={{ width: { width }, height: { height }, color: { color } }}
         onClick={props.handleClick}
       />

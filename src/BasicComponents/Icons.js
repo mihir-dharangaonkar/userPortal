@@ -3,7 +3,7 @@ import { Icon } from "semantic-ui-react"
 
 const Icons = () => (
   <>
-    <Icon link name="arrow right" />
+    <Icon link name='arrow right' />
   </>
 )
 

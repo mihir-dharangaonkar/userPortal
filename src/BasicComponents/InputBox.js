@@ -8,7 +8,7 @@ const InputBox = ({ onPress, ...props }) => {
         type={props.type}
         placeholder={props.placeholder}
         onChange={onPress}
-        maxLength="30"
+        maxLength='30'
         name={props.name}
       />
     </>

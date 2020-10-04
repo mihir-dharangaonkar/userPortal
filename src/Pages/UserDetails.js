@@ -12,7 +12,7 @@ const BottomBorderTable = styled(Table)`
 `
 
 const UserDetails = ({ match }) => {
-  const user = match.params.task
+  const user = match.params.id
 
   const { data, loading, error } = useGet(
     `http://localhost:5000/getRegisterUser/${user}`
@@ -26,7 +26,7 @@ const UserDetails = ({ match }) => {
   }
   return (
     <>
-      <Header header="Details of user" path={UserIcon} />
+      <Header header='Details of user' path={UserIcon} />
 
       <BottomBorderTable>
         <Table.Header>

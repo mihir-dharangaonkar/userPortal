@@ -17,7 +17,7 @@ const RadioButton = ({ options, handleChange, ...props }) => {
       {options.map((option) => (
         <Wrapper key={option.key}>
           <Form.Radio
-            type="radio"
+            type='radio'
             name={props.name}
             label={option.Label}
             value={option.value}

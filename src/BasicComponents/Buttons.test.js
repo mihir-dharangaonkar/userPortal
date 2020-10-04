@@ -8,9 +8,10 @@ describe("Buttons", () => {
     expect(Button.text()).toBe("Submit")
   })
   it("should call onClick method", () => {
-    const Button = mount(<Buttons text={"Submit"} />)
-    const mockOnClean = jest.fn()
+    const mockOnClick = jest.fn()
+    const Button = mount(<Buttons text={"Submit"} onClick={mockOnClick} />)
+
     Button.simulate("click")
-    expect(mockOnClean).toHaveBeenCalledTimes(0)
+    expect(mockOnClick).toHaveBeenCalledTimes(1)
   })
 })

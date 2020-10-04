@@ -66,3 +66,19 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+###Project Structure
+This project is created by CRA. Under the source directory
+###BasicComponents
+Represents the components like Buttons, Drop down, header etc.
+###Constants
+Contains constants of the project including the useRest custom hook.
+###Contexts
+React.createContext files
+###ICONS
+images used in projects
+###Pages
+Pages built from BasicComponents, Images,etc.
+###Other pages
+.eslintrc,.prettierrc files are for managing ESLint and prettier rules
+SetupTests.js file : This file is for basic setup required for jest and enzyme.

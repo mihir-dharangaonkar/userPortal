@@ -16,12 +16,13 @@ border : ${(props) => (props.noBorder ? "none" : "1px solid")}
 {
 background-color:#351973}
 `
-const Buttons = ({ ...props }) => {
+const Buttons = ({ onClick, ...props }) => {
   return (
     <>
-      <Button>
+      <Button onClick={onClick}>
         {props.text}
         {props.width}
+
         <Icons />
       </Button>
     </>

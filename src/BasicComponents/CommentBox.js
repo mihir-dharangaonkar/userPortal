@@ -8,7 +8,7 @@ const CommentBox = ({ onComment, ...props }) => {
       <Form>
         <TextArea
           rows={5}
-          placeholder="Enter the detail here..."
+          placeholder='Enter the detail here...'
           onChange={onComment}
           maxLength={TOTAL_LENGTH}
           name={props.name}

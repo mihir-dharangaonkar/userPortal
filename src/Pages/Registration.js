@@ -14,6 +14,8 @@ import { TOTAL_LENGTH } from "../Constants/URI.js"
 import { Modal } from "semantic-ui-react"
 import BottomBorderTable from "../BasicComponents/BottomBorderTable.js"
 import HeaderNameContext from "../Contexts/HeaderNameContext.js"
+import FooterContext from "../Contexts/FooterContext"
+import Footer from "../BasicComponents/Footer"
 
 const ButtonAlign = styled.div`
   display: flex;
@@ -35,8 +37,9 @@ const Heading = styled.div`
   margin: 30px;
 `
 const Registration = ({ history, match }) => {
+  const [hide, setHide] = useState(false)
   const [state, setState] = useState({
-    firstName: "Mihir",
+    firstName: "",
     lastName: "",
     email: "",
     countryDropDown: "",
@@ -65,6 +68,17 @@ const Registration = ({ history, match }) => {
     })
   }
 
+  const handleHide = () => {
+    setHide(true)
+  }
+  const handleShow = (e) => {
+    state.comment = ""
+    setHide(false)
+  }
+  const look = () => {
+    return hide ? "flex" : "none"
+  }
+
   const { data } = useGet("http://localhost:5000/country")
 
   const Labels = [
@@ -74,11 +88,12 @@ const Registration = ({ history, match }) => {
   ]
 
   const Text = React.useContext(HeaderNameContext)
+  const ft = React.useContext(FooterContext)
   const FirstNameRef = createRef()
   return (
     <>
       <Form
-        method="POST"
+        method='POST'
         onSubmit={(e) => {
           e.preventDefault()
           if (
@@ -122,15 +137,15 @@ const Registration = ({ history, match }) => {
             <Table.Body>
               <Table.Row>
                 <Table.Cell>
-                  कृपया आपले नाव प्रविष्ट करा<Asteric>*</Asteric>:
+                  Please enter your name:<Asteric>*</Asteric>:
                 </Table.Cell>
                 <Table.Cell>
                   <InputBox
-                    id="firstName"
-                    type="text"
-                    name="firstName"
+                    id='firstName'
+                    type='text'
+                    name='firstName'
                     ref={FirstNameRef}
-                    placeholder="FirstName"
+                    placeholder='FirstName'
                     value={state.firstName}
                     onPress={HandleInput}
                   />
@@ -142,10 +157,10 @@ const Registration = ({ history, match }) => {
                 </Table.Cell>
                 <Table.Cell>
                   <InputBox
-                    id="lastName"
-                    name="lastName"
-                    placeholder="Last Name"
-                    type="text"
+                    id='lastName'
+                    name='lastName'
+                    placeholder='Last Name'
+                    type='text'
                     value={state.lastName}
                     onPress={HandleInput}
                   />
@@ -157,12 +172,12 @@ const Registration = ({ history, match }) => {
                 </Table.Cell>
                 <Table.Cell>
                   <input
-                    id="email"
-                    placeholder="Email"
-                    type="email"
+                    id='email'
+                    placeholder='Email'
+                    type='email'
                     value={state.email}
                     onChange={HandleInput}
-                    name="email"
+                    name='email'
                   />
                 </Table.Cell>
               </Table.Row>
@@ -172,8 +187,8 @@ const Registration = ({ history, match }) => {
                 </Table.Cell>
                 <Table.Cell>
                   <CustomSelect
-                    name="countryDropDown"
-                    options={data}
+                    name='countryDropDown'
+                    options={[]}
                     value={state.countryDropDown}
                     handleChange={HandleInput}
                   />
@@ -188,10 +203,10 @@ const Registration = ({ history, match }) => {
                     Male
                     <input
                       style={{ margin: "10px" }}
-                      id="Male"
-                      type="radio"
-                      value="Male"
-                      name="radiogroup"
+                      id='Male'
+                      type='radio'
+                      value='Male'
+                      name='radiogroup'
                       onChange={HandleInput}
                     />
                   </label>
@@ -199,10 +214,10 @@ const Registration = ({ history, match }) => {
                     Female
                     <input
                       style={{ margin: "10px" }}
-                      id="Female"
-                      type="radio"
-                      value="Female"
-                      name="radiogroup"
+                      id='Female'
+                      type='radio'
+                      value='Female'
+                      name='radiogroup'
                       onChange={HandleInput}
                     />
                   </label>
@@ -210,10 +225,10 @@ const Registration = ({ history, match }) => {
                     Other
                     <input
                       style={{ margin: "10px" }}
-                      id="Other"
-                      type="radio"
-                      value="Other"
-                      name="radiogroup"
+                      id='Other'
+                      type='radio'
+                      value='Other'
+                      name='radiogroup'
                       onChange={HandleInput}
                     />
                   </label>
@@ -228,10 +243,10 @@ const Registration = ({ history, match }) => {
                     Hindu
                     <input
                       style={{ margin: "10px" }}
-                      id="Hindu"
-                      type="checkbox"
+                      id='Hindu'
+                      type='checkbox'
                       checked={state.Hindu}
-                      name="Hindu"
+                      name='Hindu'
                       onChange={HandleInput}
                     />
                   </label>
@@ -239,10 +254,10 @@ const Registration = ({ history, match }) => {
                     Budhist
                     <input
                       style={{ margin: "10px" }}
-                      id="Budhist"
-                      type="checkbox"
+                      id='Budhist'
+                      type='checkbox'
                       checked={state.budhist}
-                      name="budhist"
+                      name='budhist'
                       onChange={HandleInput}
                     />
                   </label>
@@ -250,10 +265,10 @@ const Registration = ({ history, match }) => {
                     Jews
                     <input
                       style={{ margin: "10px" }}
-                      id="Jews"
-                      type="checkbox"
+                      id='Jews'
+                      type='checkbox'
                       checked={state.Jews}
-                      name="Jews"
+                      name='Jews'
                       onChange={HandleInput}
                     />
                   </label>
@@ -265,9 +280,9 @@ const Registration = ({ history, match }) => {
                 </Table.Cell>
                 <Table.Cell>
                   <InputBox
-                    id="date"
-                    type="Date"
-                    name="date"
+                    id='date'
+                    type='Date'
+                    name='date'
                     Value={state.date}
                     onPress={HandleInput}
                   />
@@ -280,9 +295,9 @@ const Registration = ({ history, match }) => {
                     <Modal.Header>Select one country</Modal.Header>
                     <Modal.Content>
                       <CustomSelect
-                        id="countryDropDown"
-                        name="countryDropDown"
-                        options={data}
+                        id='countryDropDown'
+                        name='countryDropDown'
+                        options={[]}
                         value={state.popUpCountry}
                         handleChange={HandleInput}
                       />
@@ -301,23 +316,35 @@ const Registration = ({ history, match }) => {
                 </Table.Cell>
                 <Table.Cell>
                   <InputBox
-                    id="file"
-                    type="file"
-                    name="fileUpload"
-                    accept=".pdf"
+                    id='file'
+                    type='file'
+                    name='fileUpload'
+                    accept='.pdf'
                     value={state.fileUpload}
                     onPress={HandleInput}
                   />
+                </Table.Cell>
+              </Table.Row>
+
+              <Table.Row>
+                <Table.Cell>
+                  Do you want to enter comments?<Asteric>*</Asteric>{" "}
+                </Table.Cell>
+                <Table.Cell>
+                  Yes
+                  <input type={"radio"} name={"comment"} onChange={handleHide} />
+                  No
+                  <input type={"radio"} name={"comment"} onChange={handleShow} />
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>
                   टिप्पण्या<Asteric>*</Asteric>{" "}
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell style={{ display: look() }}>
                   <CommentBox
-                    id="comment"
-                    name="comment"
+                    id='comment'
+                    name='comment'
                     value={state.comment}
                     onComment={HandleInput}
                   />
@@ -328,9 +355,10 @@ const Registration = ({ history, match }) => {
           </BottomBorderTable>
 
           <ButtonAlign>
-            <Buttons type="submit" value="submit" text="Submit the information" />
+            <Buttons type='submit' value='submit' text='Submit the information' />
           </ButtonAlign>
         </Form.Field>
+        <Footer {...ft} />
       </Form>
     </>
   )

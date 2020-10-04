@@ -14,7 +14,6 @@ const CheckBoxes = ({ handleChange, LabelName }) => {
   )
 }
 CheckBoxes.propsTypes = {
-  handleChange: PropsTypes.func(),
   LabelName: PropsTypes.Array
 }
 export default CheckBoxes

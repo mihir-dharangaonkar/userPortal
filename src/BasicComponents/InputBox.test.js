@@ -7,7 +7,13 @@ describe("InputBox", () => {
     const mockOnPress = jest.fn()
     const Input = mount(<InputBox onPress={mockOnPress} />)
 
-    Input.find("input").simulate("change", { target: "Mihir" })
+    Input.find("input").simulate("change", { target: { value: "Mihir" } })
     expect(mockOnPress).toHaveBeenCalledTimes(1)
+  })
+  it("it should have max length of 30", () => {
+    const Input = mount(<InputBox />)
+    expect(Input.find("input").prop("maxLength")).toEqual("30")
+    Input.setProps({ placeholder: "text" })
+    expect("placeholder" in Input.props()).toEqual(true)
   })
 })

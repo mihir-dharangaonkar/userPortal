@@ -5,6 +5,7 @@ import Buttons from "../BasicComponents/Buttons"
 import { Message } from "semantic-ui-react"
 import Header from "../BasicComponents/Header.js"
 import UserIcon from "../Icons/UserDetailsIcon.png"
+import PdfViewer from "../Constants/PdfViewer.js"
 import styled from "styled-components"
 import { Table, Input, Button } from "semantic-ui-react"
 
@@ -24,17 +25,14 @@ const PlaneInput = styled(Input)`
   }
 `
 const PartnerDetail = ({ history, match }) => {
-const user = match.params.id
-const { data, loading, error } = useGet(
+  const user = match.params.id
+  const { data, loading, error } = useGet(
     `http://localhost:5000/getRegisterUser/${user}`
   )
 
-
-
-
   const [edit, setEdit] = useState(false)
   const [label, setLabel] = useState("Edit data")
-const [state,setState]=useState({firstName:''})
+  const [state, setState] = useState({ firstName: "" })
 
   const handleEdit = () => {
     if (!edit) {
@@ -46,31 +44,37 @@ const [state,setState]=useState({firstName:''})
     }
   }
 
- if (loading) {
+  if (loading) {
     return <Loading />
   }
   if (error) {
     alert(error.message)
   }
 
-  const handleChange=(e)=>{
-  setState({
-  ...state,
-  [e.target.name]:e.target.value
-  })}
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <>
-      <Header header="User details information" path={UserIcon} />
+      <Header header='User details information' path={UserIcon} />
       <Button onClick={handleEdit}>{label}</Button>
-      <h4>Basic Information</h4>
+      <h4 data-testid={"basic"}>Basic Information</h4>
       <BottomBorder />
       <PartnerDetailTable>
         <Table.Row>
           <Table.Cell>First Name </Table.Cell>
           <Table.Cell>
             {edit ? (
-              <PlaneInput transparent value={state.firstName} name="firstName" onChange={handleChange} />
+              <PlaneInput
+                transparent
+                value={state.firstName}
+                name='firstName'
+                onChange={handleChange}
+              />
             ) : (
               <PlaneInput transparent disabled value={data[0].firstName} />
             )}
@@ -154,7 +158,7 @@ const [state,setState]=useState({firstName:''})
         </Table.Row>
       </PartnerDetailTable>
 
-      <Buttons text={`Download PDF`} />
+      <Buttons onClick={(e) => history.push("/basic")} text={`Download PDF`} />
 
       <Message>
         <Message.Header>Next Steps</Message.Header>
@@ -164,7 +168,7 @@ const [state,setState]=useState({firstName:''})
           </Message.Item>
           <Message.Item>
             You can click on enter{" "}
-            <a href="http://localhost:3000/registration">new registration form </a>
+            <a href='http://localhost:3000/registration'>new registration form </a>
             link below
           </Message.Item>
         </Message.List>

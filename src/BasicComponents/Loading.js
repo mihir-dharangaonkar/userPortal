@@ -15,7 +15,7 @@ const Loading = () => {
     <>
       <Wrapper>
         <ImageView path={logo} style={{ width: 20, height: 20 }} />
-        <Loader active size="massive" />
+        <Loader active size='massive' />
         <h2>Please wait ... we are fetching data from backend </h2>
       </Wrapper>
     </>

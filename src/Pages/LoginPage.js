@@ -5,40 +5,30 @@ import Buttons from "../BasicComponents/Buttons.js"
 import { useFormik } from "formik"
 import { toast } from "react-toastify"
 import Header from "../BasicComponents/Header"
+import manWithDocument from "../Icons/bg1.svg"
 
-import manWithDocument from "../Icons/man_with_documents.svg"
-
-export const SearchBox = styled.input`
-  border: none;
-  border-bottom: 5px solid #4c7700;
-  width: 60%;
-  height: 50px;
-  margin: 30px;
-  margin-left: 230px;
-`
 const Background = styled.div`
-  height: 100%;
-  width: 100%;
+  float: right;
+  height: 70%;
+  width: 70%;
   background-image: url(${manWithDocument});
   background-repeat: no-repeat;
 `
+const SignUpLink = styled.a`
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+`
 const Container = styled.div`
-  display: block;
+  display: flex;
   height: 600px;
   width: 600px;
   margin: auto;
-` /*
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-`*/ /* Center and scale the image nicely */
-/*const LoginContainer = styled.div`
-  background-image: url(${backIcon});
-  height: 1000px;
-  width: auto;
-  */ const LoginPage = ({
-  history
-}) => {
+`
+const LoginPage = ({ history }) => {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -47,6 +37,7 @@ const Container = styled.div`
     },
 
     onSubmit: (values) => {
+      alert([email.value, password.value])
       if (values.email === "tristar.mihir@gmail.com") {
         history.push("/LandingPage")
       } else {
@@ -61,41 +52,52 @@ const Container = styled.div`
       }
     }
   })
+  let email, password
 
   return (
     <>
-      <Header header="Portfolio form site" path={manWithDocument} />
+      <Header header='Portfolio form site' path={manWithDocument} />
       <Background>
         <Container>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Field>
               <label style={{ color: "black", fontWeight: "bold" }}>UserName</label>
-              <SearchBox
-                type="email"
-                name="email"
-                placeholder="Email"
+              <input
+                id='email'
+                ref={(input) => (email = input)}
+                type='email'
+                name='email'
+                placeholder='Email'
                 onChange={formik.handleChange}
                 value={formik.values.email}
               />
             </Form.Field>
             <Form.Field>
               <label style={{ color: "black", fontWeight: "bold" }}>Password</label>
-              <SearchBox
-                type="password"
-                name="password"
-                placeholder="Password"
+              <input
+                id='password'
+                ref={(input) => (password = input)}
+                type='password'
+                name='password'
+                placeholder='Password'
                 onChange={formik.handleChange}
                 value={formik.values.password}
               />
             </Form.Field>
+
             <Form.Field>
               <Checkbox
-                name="checkbox"
-                label=" I Agree for all terms and conditions"
+                id='checkbox'
+                name='checkbox'
+                label='I Agree for all terms and conditions'
                 onClick={formik.handleChange}
               />
             </Form.Field>
-            <Buttons text="Submit" />
+            <Buttons text='Submit' />
+            <SignUpLink href='' onClick={() => history.push("/signup")}>
+              {" "}
+              Not a member? Sign up
+            </SignUpLink>
           </Form>
         </Container>
       </Background>

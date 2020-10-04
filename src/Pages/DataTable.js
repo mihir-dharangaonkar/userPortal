@@ -37,7 +37,7 @@ const DataTable = ({ history, match }) => {
   const [text, setText] = useState("")
 
   const handleClick = (id) => {
-    history.push(`/PartnerDetail/${id}`)
+    history.push(`/partnerDetail/${id}`)
   }
 
   const handleEditClick = (key) => {
@@ -50,18 +50,20 @@ const DataTable = ({ history, match }) => {
     return <Loading />
   }
   if (error) {
-    return toast.error(error.message)
+    return toast.warn(error.message)
   }
 
   return (
     <>
       <Wrapper>
         <SearchBox
+          Value={text}
+          data-testid='input'
           placeholder={"Search for users..."}
           onChange={(e) => setText(e.target.value)}
         />
 
-        <BottomBorderTable basic="very" padded collapsed striped fixed sortable>
+        <BottomBorderTable basic='very' padded collapsed striped fixed sortable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Edit</Table.HeaderCell>
@@ -93,13 +95,14 @@ const DataTable = ({ history, match }) => {
                       Edit
                     </Minimal>
                   </Table.Cell>
-                  <Table.Cell>{user.firstName}</Table.Cell>
+                  <Table.Cell data-testid={"firstName"}>{user.firstName}</Table.Cell>
                   <Table.Cell>{user.lastName}</Table.Cell>
                   <Table.Cell>{user.email}</Table.Cell>
                   <Table.Cell>{user.country}</Table.Cell>
                   <Table.Cell>{user.date}</Table.Cell>
                   <Table.Cell>
                     <Minimal
+                      data-testid={"go"}
                       onClick={() => {
                         handleClick(user.key)
                       }}
