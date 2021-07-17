@@ -21,6 +21,7 @@ const RadioButton = ({ options, handleChange, ...props }) => {
             name={props.name}
             label={option.Label}
             value={option.value}
+            checked={option.value===option.selected}
             onChange={handleChange}
           />
         </Wrapper>

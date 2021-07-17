@@ -7,7 +7,8 @@ const Root = () => {
   toast.configure({
     autoClose: false,
     draggable: false,
-    closeOnClick: false
+    closeOnClick: false,
+    position: "bottom-center",
   })
   return <App />
 }

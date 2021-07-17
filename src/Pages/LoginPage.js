@@ -28,6 +28,13 @@ const Container = styled.div`
   width: 600px;
   margin: auto;
 `
+const Input=styled.input
+`background-color:transparent;
+:hover{
+  transform:scale(1.5);
+}
+
+`
 const LoginPage = ({ history }) => {
   const formik = useFormik({
     initialValues: {
@@ -62,7 +69,7 @@ const LoginPage = ({ history }) => {
           <Form onSubmit={formik.handleSubmit}>
             <Form.Field>
               <label style={{ color: "black", fontWeight: "bold" }}>UserName</label>
-              <input
+              <Input
                 id='email'
                 ref={(input) => (email = input)}
                 type='email'
@@ -74,7 +81,7 @@ const LoginPage = ({ history }) => {
             </Form.Field>
             <Form.Field>
               <label style={{ color: "black", fontWeight: "bold" }}>Password</label>
-              <input
+              <Input
                 id='password'
                 ref={(input) => (password = input)}
                 type='password'
@@ -87,13 +94,14 @@ const LoginPage = ({ history }) => {
 
             <Form.Field>
               <Checkbox
+              style={{backgroundColor:'transparent',color:'white',border:'1px solid #fff' }}
                 id='checkbox'
                 name='checkbox'
                 label='I Agree for all terms and conditions'
                 onClick={formik.handleChange}
               />
             </Form.Field>
-            <Buttons text='Submit' />
+            <Buttons text='Submit'  />
             <SignUpLink href='' onClick={() => history.push("/signup")}>
               {" "}
               Not a member? Sign up

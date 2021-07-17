@@ -7,7 +7,7 @@ import Success from "./Pages/Success"
 import LoginPage from "./Pages/LoginPage"
 import DataTable from "./Pages/DataTable"
 import UserDetails from "./Pages/UserDetails"
-import PdfViewer from "./Constants/PdfViewer.js"
+
 import SignupPage from "./Pages/SignupPage.js"
 
 import ErrorBoundries from "./errorBoundries.js"
@@ -15,10 +15,11 @@ import LandingPage from "./Pages/LandingPage.js"
 import HeaderNameContext from "./Contexts/HeaderNameContext.js"
 
 import { BrowserRouter as Router } from "react-router-dom"
-import Footer from "./BasicComponents/Footer"
+
 import FooterContext from "./Contexts/FooterContext"
 
 const PartnerDetails = React.lazy(() => import("./BasicComponents/PartnerDetail"))
+
 
 function App() {
   const BigContainer = styled.div`
@@ -39,7 +40,8 @@ function App() {
                 value={{
                   true: true,
                   text1: "All Rights reserved",
-                  text2: "A Mihir-Mansi Corporation website"
+                  text2: "A Mihir-Mansi Corporation website",
+                  text:"Mihir"
                 }}
               >
                 <React.Suspense

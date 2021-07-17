@@ -1,3 +1,25 @@
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge,Chrome */
+  color: green;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: green;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: green;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+color: green;
+opacity:  1;
+}
+
+::placeholder { /* Modern browsers */
+color: green;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -8,4 +30,25 @@ body {
 code {
   font-family: "Jaldi", sans-serif;
   font-family: "Ultra", serif;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge,Chrome */
+  color: green;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: green;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: green;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+color: green;
+opacity:  1;
+}
+
+::placeholder { /* Modern browsers */
+color: green;
 }

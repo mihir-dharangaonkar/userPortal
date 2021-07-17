@@ -1,0 +1,24 @@
+input {
+  display: block;
+  width: 50%;
+  margin: 30px;
+  padding: 3px;
+}
+
+button {
+  width: 50%;
+  background-color: purple;
+  height: 30px;
+
+}
+
+button:hover {
+  background-color: peachpuff;
+}
+
+h1 {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}

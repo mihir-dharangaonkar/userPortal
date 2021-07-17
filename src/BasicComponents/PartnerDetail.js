@@ -5,7 +5,7 @@ import Buttons from "../BasicComponents/Buttons"
 import { Message } from "semantic-ui-react"
 import Header from "../BasicComponents/Header.js"
 import UserIcon from "../Icons/UserDetailsIcon.png"
-import PdfViewer from "../Constants/PdfViewer.js"
+
 import styled from "styled-components"
 import { Table, Input, Button } from "semantic-ui-react"
 

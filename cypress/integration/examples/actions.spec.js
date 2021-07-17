@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+np/// <reference types="cypress" />
 
 context("Actions", () => {
   beforeEach(() => {

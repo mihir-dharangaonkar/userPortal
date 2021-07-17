@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import Axios from "axios"
 
 const useRest = (request, skip) => {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
 

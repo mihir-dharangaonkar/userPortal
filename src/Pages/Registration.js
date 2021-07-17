@@ -16,6 +16,7 @@ import BottomBorderTable from "../BasicComponents/BottomBorderTable.js"
 import HeaderNameContext from "../Contexts/HeaderNameContext.js"
 import FooterContext from "../Contexts/FooterContext"
 import Footer from "../BasicComponents/Footer"
+import { toast } from "react-toastify"
 
 const ButtonAlign = styled.div`
   display: flex;
@@ -36,6 +37,13 @@ const Heading = styled.div`
   padding: 10px;
   margin: 30px;
 `
+export const TextInputElement = styled.input.attrs({
+  placeholderTextColor: 'gray',
+})`
+  font-size: 15px;
+  line-height: 18px;
+  color: '#000';
+`;
 const Registration = ({ history, match }) => {
   const [hide, setHide] = useState(false)
   const [state, setState] = useState({
@@ -85,7 +93,7 @@ const Registration = ({ history, match }) => {
     { Label: "Male", value: "Male" },
     { Label: "Female", value: "Female" },
     { Label: "Other", value: "Other" }
-  ]
+  ]  
 
   const Text = React.useContext(HeaderNameContext)
   const ft = React.useContext(FooterContext)
@@ -101,7 +109,7 @@ const Registration = ({ history, match }) => {
             state.lastName === "" ||
             state.email === ""
           ) {
-            alert("Please submit all fields")
+            toast.warn("Please submit all fields. Close this message to proceed.If you see any issue or not able to proceed, please send email to mihir.dharangaonkar@gmail.com")
           } else {
             Axios.post("http://localhost:5000/register", {
               firstName: state.firstName,
@@ -145,7 +153,8 @@ const Registration = ({ history, match }) => {
                     type='text'
                     name='firstName'
                     ref={FirstNameRef}
-                    placeholder='FirstName'
+                    placeholder={TextInputElement}
+                    
                     value={state.firstName}
                     onPress={HandleInput}
                   />
